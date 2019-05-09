@@ -1,16 +1,14 @@
 $days: (mon, tue, wed, thu, fri, sat, sun);
-* {
-  box-sizing: border-box;
-}
+$size: 100px;
+
 .calendar {
+  margin: 50px 0;
   display: grid;
-  align-content: end;
   justify-content: center;
-  grid-template-columns: repeat(7, 100px);
-  grid-template-rows: repeat(6, 100px);
+  align-content: center;
+  grid-template: repeat(6, $size) / repeat(7, $size);
   grid-gap: 1px;
-  text-align: center;
-  line-height: 100px;
+  line-height: $size;
   font-family: Arial, sans-serif;
   font-size: 30px;
 }
@@ -19,6 +17,8 @@ $days: (mon, tue, wed, thu, fri, sat, sun);
   @for $i from 1 through $numberOfDays {
     .calendar-#{$numberOfDays} .day:nth-child(#{$i}):after {
       content: '#{$i}';
+      display: flex;
+      justify-content: center;
     }
     .calendar-#{$numberOfDays} .day:nth-child(#{$i})  {
       border: 1px solid black;
